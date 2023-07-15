@@ -32,14 +32,15 @@ public class SequenceList<T> implements Iterable<T> {
 
     /**
      * 清空顺序表
+     * 底层也是便利数组依次赋值，所以时间复杂度为O(n)。
      */
     public void clear() {
         size = 0;
-        Arrays.fill(elements, null);
     }
 
     /**
      * 顺序表是否为空
+     * 直接返回size值，所以时间复杂度为O(1)。
      *
      * @return 是否为空
      */
@@ -49,6 +50,7 @@ public class SequenceList<T> implements Iterable<T> {
 
     /**
      * 获取顺序表长度
+     * 直接返回size值，所以时间复杂度为O(1)
      *
      * @return 顺序表长度
      */
@@ -58,6 +60,7 @@ public class SequenceList<T> implements Iterable<T> {
 
     /**
      * 根据下标获得元素
+     * 顺序表的特点就是随机访问，直接返回根据下标返回数组元素，所以时间复杂度为O(1)。
      *
      * @param i 元素下标
      * @return 下标对应元素
@@ -74,6 +77,7 @@ public class SequenceList<T> implements Iterable<T> {
 
     /**
      * 向顺序表中插入元素，如果顺序表已满则进行扩容操作
+     * 直接根据size位置插入，所以时间复杂度为O(1)。
      *
      * @param e 待插入元素
      */
@@ -97,11 +101,12 @@ public class SequenceList<T> implements Iterable<T> {
 
     /**
      * 往指定下标插入元素
+     * 直接根据size位置插入，所以时间复杂度为O(1)。
      *
      * @param target 目标下标
      * @param e      待插入元素
      */
-    public void insert(int target, T e) {
+    public void update(int target, T e) {
 
         // 安全性校验
         if (target < 0 || target >= size) {

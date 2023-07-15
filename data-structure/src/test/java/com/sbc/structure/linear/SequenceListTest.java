@@ -54,7 +54,8 @@ class SequenceListTest {
         list.insert(3);
         list.insert(4);
         list.insert(5);
-        list.remove(3);
+        list.update(5, 9);
+        list.update(3, 9);
 
         Iterator<Integer> iterator = list.iterator();
         while (iterator.hasNext()) {
@@ -68,14 +69,9 @@ class SequenceListTest {
         list.insert(1);
         list.insert(2);
         list.insert(3);
-        list.insert(2, 7);
-        list.insert(6,8);
-        list.insert(2,5);
+        list.insert(3);
 
-        Iterator<Integer> iterator = list.iterator();
-        while (iterator.hasNext()) {
-            Integer element = iterator.next();
-            System.out.println(element);
-        }
+        System.out.println(list.indexOf(3));
+        System.out.println(list.indexOf(5));
     }
 }
