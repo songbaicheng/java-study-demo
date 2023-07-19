@@ -193,7 +193,7 @@ class LNodeTest {
     }
 
     /**
-     *
+     * 获取链表长度
      * @param head 单链表
      * @param <T> 元素类型
      * @return 链表长度
@@ -289,5 +289,38 @@ class LNodeTest {
             System.out.println(head.data); // null 9 8 7 6 4 3 2 1 0
             head = head.next;
         }
+    }
+
+    /**
+     * 返回第一个element结点，假设有头结点
+     * 需要从第一个节点开始遍历，时间复杂度为O(n)
+     */
+    private <T> LNode<T> getElement(LNode<T> head, T element) {
+
+        LNode<T> currNode = head.next;
+
+        while (currNode != null && currNode.data != element) {
+            currNode = currNode.next;
+        }
+
+        return currNode;
+    }
+
+    @Test
+    void getElementTest() {
+        LNode<Integer> head = new LNode<>(null);
+
+        for (int i = 0; i < 10; i++) {
+            LNode<Integer> node = new LNode<>(i);
+            node.next = head.next;
+            head.next = node;
+        }
+
+        LNode<Integer> lNode1 = getElement(head, 5);
+        assertNotNull(lNode1);
+        System.out.println(lNode1.data); // 5
+        LNode<Integer> lNode2 = getElement(head, 19);
+        assertNotNull(lNode2, "结点不存在！");
+        System.out.println(lNode2.data); // 结点不存在！
     }
 }
