@@ -1,6 +1,5 @@
 package com.sbc.structure.linear;
 
-import java.util.Iterator;
 import java.util.Stack;
 
 /**
@@ -8,7 +7,7 @@ import java.util.Stack;
  * @description 用数组实现的顺序栈
  * @date 2023/7/24 23:19
  */
-public class ArrayStack<E> extends Stack<E> implements Iterable<E> {
+public class ArrayStack<E> extends Stack<E> {
 
     /**
      * 栈顶指针
@@ -64,10 +63,5 @@ public class ArrayStack<E> extends Stack<E> implements Iterable<E> {
     @Override
     public boolean empty() {
         return this.top == -1;
-    }
-
-    @Override
-    public synchronized Iterator<E> iterator() {
-        return null;
     }
 }
