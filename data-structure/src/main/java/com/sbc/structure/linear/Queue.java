@@ -2,10 +2,10 @@ package com.sbc.structure.linear;
 
 /**
  * @author songbaicheng
- * @description 顺序存储队列
- * @date 2023/7/29 20:22
+ * @description 循环队列
+ * @date 2023/7/30 21:08
  */
-public class SqQueue<E> {
+public class Queue<E> {
 
     /**
      * 队列最大容量
@@ -29,7 +29,7 @@ public class SqQueue<E> {
      *
      * @param maxSize 队列最大容量
      */
-    public SqQueue(int maxSize) {
+    public Queue(int maxSize) {
         this.maxSize = maxSize;
         front = 0;
         rear = 0;
@@ -51,7 +51,7 @@ public class SqQueue<E> {
      * @return 是否队列已满
      */
     public boolean isFull() {
-        return rear == maxSize;
+        return (rear + 1) % maxSize == front;
     }
 
     /**
@@ -63,7 +63,8 @@ public class SqQueue<E> {
 
         // 队不满时，先送值到队尾元素，再将队尾指针加一
         if (!isFull()) {
-            arrayQueue[rear++] = element;
+            arrayQueue[rear] = element;
+            rear = (rear + 1) % maxSize;
         }
     }
 
@@ -74,7 +75,14 @@ public class SqQueue<E> {
      */
     public Object poll() {
 
-        return !isEmpty() ? arrayQueue[front++] : null;
+        if (isEmpty()) {
+            return null;
+        }
+
+        Object temp = arrayQueue[front];
+        front = (front + 1) % maxSize;
+
+        return temp;
     }
 
     /**
@@ -84,6 +92,16 @@ public class SqQueue<E> {
      */
     public Object peek() {
 
-        return !isEmpty() ? arrayQueue[front] : null;
+        return isEmpty() ? arrayQueue[front] : null;
+    }
+
+    /**
+     * 获取目前队列长度
+     *
+     * @return 队列长度
+     */
+    public int length() {
+
+        return (rear + maxSize - front) % maxSize;
     }
 }
