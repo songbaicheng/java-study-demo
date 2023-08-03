@@ -1,3 +1,5 @@
 rootProject.name = 'java-study-demo'
 include 'data-structure'
+include 'web-service-server'
+include 'web-service-client'
 

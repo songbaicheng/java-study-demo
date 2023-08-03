@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'com.sbc'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = "8"
+    targetCompatibility = "8"
+}
+
+dependencies {
+    implementation 'javax.xml.ws:jaxws-api:2.3.1'
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
