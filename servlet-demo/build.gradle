@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'com.sbc'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
+    implementation 'cn.hutool:hutool-all:5.7.14'
+
+    testImplementation 'junit:junit:4.11'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// 配置war插件
+war {
+    // 设置WEB-INF目录下的classess目录，这是编译输出的位置
+    webInf { from sourceSets.main.output }
+}

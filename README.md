@@ -6,3 +6,5 @@ Demos for learning Java.
 生成客户端，可调用服务端计算器方法。
 ## web-service-server(WebService服务端)
 简单提供一个有加法功能的计算器供客户端调用。
+## servlet-demo(servlet案例)
+一个简单的servlet服务器
