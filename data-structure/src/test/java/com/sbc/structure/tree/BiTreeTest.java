@@ -1,5 +1,6 @@
 package com.sbc.structure.tree;
 
+import com.sbc.structure.linear.LinkedStack;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -45,6 +46,8 @@ class BiTreeTest {
         preOrder(root);
         System.out.println("\n中序遍历：");
         inOrder(root);
+        System.out.println("\n中序遍历：");
+        inOrderByStack(root);
         System.out.println("\n后序遍历");
         postOrder(root);
         System.out.println();
@@ -52,6 +55,7 @@ class BiTreeTest {
 
     /**
      * 前序遍历
+     *
      * @param tree 遍历二叉树
      */
     private void preOrder(BiTree<Integer> tree) {
@@ -64,6 +68,7 @@ class BiTreeTest {
 
     /**
      * 中序遍历
+     *
      * @param tree 遍历二叉树
      */
     private void inOrder(BiTree<Integer> tree) {
@@ -75,7 +80,32 @@ class BiTreeTest {
     }
 
     /**
+     * 非递归中序遍历
+     *
+     * @param tree 遍历二叉树
+     */
+    private void inOrderByStack(BiTree<Integer> tree) {
+
+        final LinkedStack<BiTree<Integer>> stack = new LinkedStack<>();
+        BiTree<Integer> root = tree;
+
+        while (root != null || !stack.empty()) {
+            if (root != null) {
+                // 一路向左
+                stack.push(root);
+                root = root.leftChild;
+            } else {
+                // 出栈并开始转向出栈的右子树
+                root = stack.pop();
+                System.out.print(root.data + ",");
+                root = root.rightChild;
+            }
+        }
+    }
+
+    /**
      * 后序遍历
+     *
      * @param tree 遍历二叉树
      */
     private void postOrder(BiTree<Integer> tree) {
