@@ -60,9 +60,9 @@ class BiTreeTest {
      */
     private void preOrder(BiTree<Integer> tree) {
         if (tree != null) {
-            System.out.print(tree.data + ",");
-            preOrder(tree.leftChild);
-            preOrder(tree.rightChild);
+            System.out.print(tree.getData() + ",");
+            preOrder(tree.getLeftChild());
+            preOrder(tree.getRightChild());
         }
     }
 
@@ -73,9 +73,9 @@ class BiTreeTest {
      */
     private void inOrder(BiTree<Integer> tree) {
         if (tree != null) {
-            inOrder(tree.leftChild);
-            System.out.print(tree.data + ",");
-            inOrder(tree.rightChild);
+            inOrder(tree.getLeftChild());
+            System.out.print(tree.getData() + ",");
+            inOrder(tree.getRightChild());
         }
     }
 
@@ -93,12 +93,12 @@ class BiTreeTest {
             if (root != null) {
                 // 一路向左
                 stack.push(root);
-                root = root.leftChild;
+                root = root.getLeftChild();
             } else {
                 // 出栈并开始转向出栈的右子树
                 root = stack.pop();
-                System.out.print(root.data + ",");
-                root = root.rightChild;
+                System.out.print(root.getData() + ",");
+                root = root.getRightChild();
             }
         }
     }
@@ -110,9 +110,9 @@ class BiTreeTest {
      */
     private void postOrder(BiTree<Integer> tree) {
         if (tree != null) {
-            postOrder(tree.leftChild);
-            postOrder(tree.rightChild);
-            System.out.print(tree.data + ",");
+            postOrder(tree.getLeftChild());
+            postOrder(tree.getRightChild());
+            System.out.print(tree.getData() + ",");
         }
     }
 

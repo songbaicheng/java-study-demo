@@ -15,15 +15,15 @@ public class BiTree<E> {
     /**
      * 数据域
      */
-    E data;
+    private E data;
     /**
      * 左孩子指针
      */
-    BiTree<E> leftChild;
+    private BiTree<E> leftChild;
     /**
      * 右孩子指针
      */
-    BiTree<E> rightChild;
+    private BiTree<E> rightChild;
 
     /**
      * 初始化方法
