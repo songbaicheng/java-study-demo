@@ -4,4 +4,5 @@ include 'web-service-server'
 include 'web-service-client'
 include 'servlet-demo'
 include 'simple-demo'
+include 'algorithms'
 
