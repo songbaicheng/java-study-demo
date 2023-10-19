@@ -1,0 +1,21 @@
+server:
+  port: 8090
+
+logging:
+  level:
+    root: info
+  file:
+    name: /Users/songbaicheng/logs/activiti/activiti.log
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/activiti # 数据库
+    driver-class-name: com.mysql.cj.jdbc.Driver # mysql驱动
+    username: root # 账户
+    password: songbaicheng # 密码
+  activiti:
+    check-process-definitions: false
+    database-schema-update: true # 第一次运行时设置为true，待表生成完以后改成false，以后就不用再更新表结构了
+    db-history-used: true
+    history-level: full
+    deployment-mode: "never-fail"

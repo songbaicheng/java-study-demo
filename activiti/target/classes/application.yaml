@@ -1,8 +1,0 @@
-server:
-  port: 8090
-
-logging:
-  level:
-    root: info
-  file:
-    name: /Users/songbaicheng/logs/activiti/activiti.log
